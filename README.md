@@ -1,9 +1,3 @@
-# React TypeScript Starter Pack
+[link to TASK](https://ahurov.notion.site/Vue-js-test-Breaking-Bad-83d9b9b2c414410e80e14ee2ea37562e)
 
-To use this template click `Use this template`
-
-### Available Scripts
-
-`Deploy` - available to deploy your application to gh-pages
-
-`SCSS Preprocessor` - available to write your styles with modern style language
+[DEMO](https://ernestofernandezua.github.io/react_breaking_bad/)
