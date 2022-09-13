@@ -16,6 +16,7 @@ export const Series: React.FC<Props> = ({
 }) => {
   const [AllSeasons, SetAllSeasons] = useState<string[] | null>(null);
   const [showSeries, setShoeSeries] = useState(false);
+  // const [windowSize, setWindowSize] = useState();
 
   const showSeriesHandler = () => {
     setShoeSeries(!showSeries);
@@ -25,6 +26,9 @@ export const Series: React.FC<Props> = ({
     SetAllSeasons(Object.keys(series).sort());
   },
   []);
+
+  // eslint-disable-next-line no-console
+  console.log(window.innerWidth);
 
   return (
     <div

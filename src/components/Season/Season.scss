@@ -1,5 +1,7 @@
-.Season {
+@import '../../style/variables.scss';
 
+.Season {
+  
   &__button {
     border: none;
     margin: 5px 0;
@@ -8,7 +10,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      background-color: $color-1;
+    }
   }
+
+  
 }
 
 .Season h3 {
@@ -26,13 +38,13 @@
 }
 
 .SeasonItem {
-  margin: 10px;
+  // margin: 10px;
 
-  &:nth-of-type(5n + 1) {
-    margin-left: 0;
-  }
+  // &:nth-of-type(5n + 1) {
+  //   margin-left: 0;
+  // }
 
-  &:nth-of-type(5n) {
-    margin-right: 0;
-  }
+  // &:nth-of-type(5n) {
+  //   margin-right: 0;
+  // }
 }

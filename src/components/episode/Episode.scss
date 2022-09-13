@@ -1,10 +1,9 @@
 @import '../../style/variables.scss';
 
 .Episode {
-  // border: 1px solid $color-1;
   border-radius: 4px;
   display: inline-block;
-  width: 150px;
+  width: $episode-card-width;
   height: 300px;
   box-sizing: border-box;
   padding: 10px;
@@ -24,7 +23,6 @@
     top: 0;
     right: 10px;
     font-size: 15px;
-    // font-weight: bold;
   }
 
   &__episode_id_season {
@@ -36,7 +34,6 @@
   }
 
   &__title {
-    // position: absolute;
     padding-top: 30px;
     font-size: 15px;
     font-weight: bold;
@@ -47,7 +44,6 @@
     bottom: -5px;
     right: 10px;
     font-size: 10px;
-    // font-weight: bold;
   }
 
   &__characters {
@@ -55,7 +51,6 @@
     top: 100px;
     left: 10px;
     font-size: 10px;
-    // font-weight: bold;
     list-style: none;
     padding: 0;
   }
