@@ -28,7 +28,6 @@ export const AllSeasons: React.FC = () => {
       ]);
 
       // PREPARE DATA
-
       // #region changeMistake in episode{episode_id: 7, season: ' 1'}
       const errorDataIndex = allEpisodesFromServer
         .findIndex((e: EpisodeType) => e.season === ' 1');

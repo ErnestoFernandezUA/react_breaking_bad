@@ -1,6 +1,7 @@
 import React, {
   useEffect, useState,
 } from 'react';
+import { Poster } from '../Poster';
 import { Season } from '../Season';
 import './Series.scss';
 
@@ -23,6 +24,9 @@ export const Series: React.FC<Props> = ({
   return (
     <div className="Series">
       <h2>{nameOfSeries}</h2>
+
+      <Poster nameOfSeries={nameOfSeries} />
+
       <ul className="SeriesList">
         {AllSeasons
         && AllSeasons.map((seasonId: string) => (

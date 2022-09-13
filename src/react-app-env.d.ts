@@ -10,10 +10,6 @@ type EpisodeType = {
   series: string;
 };
 
-type AllEpisodesOLD = {
-  [key: string]: EpisodeType[];
-};
-
 type AllEpisodes = {
   [key: string]: {
     [key: string]: EpisodeType[];
