@@ -1,5 +1,6 @@
 import React, {
   useEffect,
+  useState,
 } from 'react';
 import { Episode } from '../Episode';
 import './Season.scss';
@@ -10,6 +11,12 @@ type Props = {
 };
 
 export const Season: React.FC<Props> = ({ season, seasonId }) => {
+  const [showSeason, setShowSeason] = useState(false);
+
+  const showSeasonHandler = () => {
+    setShowSeason(!showSeason);
+  };
+
   useEffect(() => {
     // eslint-disable-next-line no-console
     console.log(`Season ${seasonId} mounted`);
@@ -18,17 +25,26 @@ export const Season: React.FC<Props> = ({ season, seasonId }) => {
 
   return (
     <div className="Season">
-      <h3>{`Season ${seasonId}`}</h3>
-      <ul className="SeasonList">
-        {season.map((episode: EpisodeType) => (
-          <li
-            key={episode.episode_id}
-            className="SeasonItem"
-          >
-            <Episode episode={episode} />
-          </li>
-        ))}
-      </ul>
+      <button
+        type="button"
+        onClick={() => showSeasonHandler()}
+        className="Season__button"
+      >
+        <p>{`Season ${seasonId}`}</p>
+      </button>
+
+      {showSeason && (
+        <ul className="SeasonList">
+          {season.map((episode: EpisodeType) => (
+            <li
+              key={episode.episode_id}
+              className="SeasonItem"
+            >
+              <Episode episode={episode} />
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

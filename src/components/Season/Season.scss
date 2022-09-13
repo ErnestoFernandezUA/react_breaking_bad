@@ -1,8 +1,17 @@
 .Season {
+
+  &__button {
+    border: none;
+    margin: 5px 0;
+    background-color: transparent;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .Season h3 {
-  padding-left: 10px;
 }
 
 .SeasonList {
@@ -12,9 +21,18 @@
   flex-wrap: wrap;
   flex-direction: row;
   align-items: flex-start;
+  justify-content: start;
   padding: 0;
 }
 
 .SeasonItem {
   margin: 10px;
+
+  &:nth-of-type(5n + 1) {
+    margin-left: 0;
+  }
+
+  &:nth-of-type(5n) {
+    margin-right: 0;
+  }
 }

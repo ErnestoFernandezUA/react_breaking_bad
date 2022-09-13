@@ -15,6 +15,11 @@ export const Series: React.FC<Props> = ({
   series,
 }) => {
   const [AllSeasons, SetAllSeasons] = useState<string[] | null>(null);
+  const [showSeries, setShoeSeries] = useState(false);
+
+  const showSeriesHandler = () => {
+    setShoeSeries(!showSeries);
+  };
 
   useEffect(() => {
     SetAllSeasons(Object.keys(series).sort());
@@ -25,24 +30,35 @@ export const Series: React.FC<Props> = ({
     <div
       className="Series"
     >
-      <h2>{nameOfSeries}</h2>
+      <button
+        type="button"
+        onClick={() => showSeriesHandler()}
+        className="Series__button"
+      >
+        <Poster
+          nameOfSeries={nameOfSeries}
+        />
+      </button>
 
-      <Poster nameOfSeries={nameOfSeries} />
+      {showSeries && (
+        <>
 
-      <ul className="SeriesList">
-        {AllSeasons
-        && AllSeasons.map((seasonId: string) => (
-          <li
-            key={seasonId}
-            className="SeriesItem"
-          >
-            <Season
-              seasonId={seasonId}
-              season={series[seasonId]}
-            />
-          </li>
-        ))}
-      </ul>
+          <ul className="SeriesList">
+            {AllSeasons
+            && AllSeasons.map((seasonId: string) => (
+              <li
+                key={seasonId}
+                className="SeriesItem"
+              >
+                <Season
+                  seasonId={seasonId}
+                  season={series[seasonId]}
+                />
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   );
 };
