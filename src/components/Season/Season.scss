@@ -1,11 +1,20 @@
 .Season {
+}
 
+.Season h3 {
+  padding-left: 10px;
 }
 
 .SeasonList {
-  // list-style: none;
+  list-style: none;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0;
 }
 
 .SeasonItem {
-
+  margin: 10px;
 }

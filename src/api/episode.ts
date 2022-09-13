@@ -1,10 +1,26 @@
 import { request } from './request';
+import episodes from '../data/episodes.json';
 import episodesBreakingBad from '../data/episodesBreakingBad.json';
 import episodesBetterCallSaul from '../data/episodesBetterCallSaul.json';
 
 export const getEpisode = (episodeId: string) => request(`/episodes/${episodeId}`);
 
-export const getAllEpisodes = () => request('/episodes/');
+export const getAllEpisodes = (series = '') => {
+  switch (series) {
+    case 'Breaking Bad':
+      return request(
+        '/episodes?series=Breaking+Bad',
+      );
+
+    case 'Better Call Saul':
+      return request(
+        '/episodes?series=Breaking+Bad',
+      );
+
+    default:
+      return request('/episodes/');
+  }
+};
 
 export const getAllEpisodesBreakingBad = () => request(
   '/episodes?series=Breaking+Bad',
@@ -15,8 +31,19 @@ export const getAllEpisodesBetterCallSaul = () => request(
 );
 
 // offline:
-export const getAllEpisodesOffline = () => JSON.parse('./../data/episodes.json');
-
 export const getAllEpisodesBreakingBadOffline = () => episodesBreakingBad;
 
 export const getAllEpisodesBetterCallSaulOffline = () => episodesBetterCallSaul;
+
+export const getAllEpisodesOffline = (series = '') => {
+  switch (series) {
+    case 'Breaking Bad':
+      return episodesBreakingBad;
+
+    case 'Better Call Saul':
+      return episodesBetterCallSaul;
+
+    default:
+      return episodes;
+  }
+};

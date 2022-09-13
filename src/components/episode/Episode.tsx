@@ -19,6 +19,8 @@ export const Episode: React.FC<Props> = ({
   } = episode;
 
   useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log(episode.series, episode.season, episode.title);
   },
   []);
 
