@@ -1,7 +1,7 @@
 import { request } from './request';
-import episodes from '../data/episodes.json';
-import episodesBreakingBad from '../data/episodesBreakingBad.json';
-import episodesBetterCallSaul from '../data/episodesBetterCallSaul.json';
+import episodes from '../data/json/episodes.json';
+import episodesBreakingBad from '../data/json/episodesBreakingBad.json';
+import episodesBetterCallSaul from '../data/json/episodesBetterCallSaul.json';
 
 export const getEpisode = (episodeId: string) => request(`/episodes/${episodeId}`);
 
