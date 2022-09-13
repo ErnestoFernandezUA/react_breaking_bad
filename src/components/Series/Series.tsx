@@ -22,7 +22,9 @@ export const Series: React.FC<Props> = ({
   []);
 
   return (
-    <div className="Series">
+    <div
+      className="Series"
+    >
       <h2>{nameOfSeries}</h2>
 
       <Poster nameOfSeries={nameOfSeries} />
