@@ -8,11 +8,13 @@ import './Series.scss';
 type Props = {
   nameOfSeries: string;
   series: {[key: string]: EpisodeType[]};
+  allCharacters: {[key: string]: CharacterType} | null;
 };
 
 export const Series: React.FC<Props> = ({
   nameOfSeries,
   series,
+  allCharacters,
 }) => {
   const [AllSeasons, SetAllSeasons] = useState<string[] | null>(null);
   const [showSeries, setShoeSeries] = useState(false);
@@ -47,16 +49,17 @@ export const Series: React.FC<Props> = ({
       {showSeries && (
         <>
 
-          <ul className="SeriesList">
+          <ul className="Series__List">
             {AllSeasons
             && AllSeasons.map((seasonId: string) => (
               <li
                 key={seasonId}
-                className="SeriesItem"
+                className="Series__Item"
               >
                 <Season
                   seasonId={seasonId}
                   season={series[seasonId]}
+                  allCharacters={allCharacters}
                 />
               </li>
             ))}

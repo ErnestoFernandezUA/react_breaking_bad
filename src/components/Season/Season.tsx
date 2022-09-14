@@ -8,9 +8,10 @@ import './Season.scss';
 type Props = {
   seasonId: string;
   season: EpisodeType[];
+  allCharacters: {[key: string]: CharacterType} | null;
 };
 
-export const Season: React.FC<Props> = ({ season, seasonId }) => {
+export const Season: React.FC<Props> = ({ season, seasonId, allCharacters }) => {
   const [showSeason, setShowSeason] = useState(false);
 
   const showSeasonHandler = () => {
@@ -34,13 +35,16 @@ export const Season: React.FC<Props> = ({ season, seasonId }) => {
       </button>
 
       {showSeason && (
-        <ul className="SeasonList">
+        <ul className="Season__List">
           {season.map((episode: EpisodeType) => (
             <li
               key={episode.episode_id}
-              className="SeasonItem"
+              className="Season__Item"
             >
-              <Episode episode={episode} />
+              <Episode
+                episode={episode}
+                allCharacters={allCharacters}
+              />
             </li>
           ))}
         </ul>

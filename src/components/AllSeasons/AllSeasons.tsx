@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { getAllCharacters } from '../../api/character';
 import {
   getAllEpisodes,
   // getAllEpisodesOffline,
@@ -11,6 +12,7 @@ export const AllSeasons: React.FC = () => {
   const [showLoaderSeasons, setShowLoaderSeasons] = useState(false);
   const [allEpisodes, setAllEpisodes] = useState<AllEpisodes | null>(null);
   const [defaultOrderSeries, setDefaultOrderSeries] = useState<string[] | null>(null);
+  const [allCharacters, setAllCharacters] = useState<{[key: string]: CharacterType} | null>(null);
 
   const loadAndPrepareDataFromServer = async () => {
     setShowLoaderSeasons(true);
@@ -19,15 +21,18 @@ export const AllSeasons: React.FC = () => {
       // LOAD DATA
       const [
         allEpisodesFromServer,
+        allCharactersFromServer,
       ] = await Promise.all([
         // if online
         getAllEpisodes(),
+        getAllCharacters(),
 
         // if offline:
         // getAllEpisodesOffline(),
       ]);
 
       // PREPARE DATA
+      // Prepare Episodes
       // #region changeMistake in episode{episode_id: 7, season: ' 1'}
       const errorDataIndex = allEpisodesFromServer
         .findIndex((e: EpisodeType) => e.season === ' 1');
@@ -56,6 +61,18 @@ export const AllSeasons: React.FC = () => {
         .sort((a, b) => -a.localeCompare(b));
 
       setDefaultOrderSeries(defaultOrderSeriesFromServer);
+
+      // Prepare Characters
+      const preparedAllCharacters: {[key: string]: CharacterType} | null = {};
+
+      allCharactersFromServer.forEach((character: CharacterType) => {
+        preparedAllCharacters[character.name] = character;
+      });
+
+      // eslint-disable-next-line no-console
+      console.log('preparedAllCharacters = ', preparedAllCharacters);
+
+      setAllCharacters(preparedAllCharacters);
     } catch (error) {
       // eslint-disable-next-line no-console
       console.log('error', error);
@@ -86,6 +103,7 @@ export const AllSeasons: React.FC = () => {
                   <Series
                     nameOfSeries={nameOfSeries}
                     series={allEpisodes[nameOfSeries]}
+                    allCharacters={allCharacters}
                   />
                 </li>
               ))}

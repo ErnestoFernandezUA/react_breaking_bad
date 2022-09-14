@@ -1,32 +1,42 @@
 @import '../../style/variables.scss';
 
 .Episode {
-  border-radius: 4px;
   display: inline-block;
   width: $episode-card-width;
   height: 300px;
   box-sizing: border-box;
   padding: 10px;
   background-color: $color-5;
+  border: 1px solid $color-5;
   position: relative;
   
   &__episode_id {
     position: absolute;
-    bottom: -10px;
-    left: 10px;
+    top: 8px;
+    left: 0;
     font-size: 15px;
+    line-height: 15px;
     font-weight: bold;
+    padding: 5px 8px;
+    width: 40px;
+    height: 40px;
+    color: $color-5;
+    // border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../data/img/back_for_episode_id.png');
+    background-size: cover;
   }
 
   &__season {
     position: absolute;
-    top: 0;
+    top: 10px;
     right: 10px;
     font-size: 15px;
   }
 
   &__episode_id_season {
-    position: absolute;
     top: 0;
     left: 10px;
     font-size: 15px;
@@ -34,25 +44,34 @@
   }
 
   &__title {
-    padding-top: 30px;
+    padding-top: 60px;
     font-size: 15px;
     font-weight: bold;
   }
 
   &__air_date {
     position: absolute;
-    bottom: -5px;
+    top: 30px;
     right: 10px;
     font-size: 10px;
   }
 
   &__characters {
     position: absolute;
-    top: 100px;
+    top: 120px;
     left: 10px;
     font-size: 10px;
     list-style: none;
     padding: 0;
+    cursor: pointer;
+
+    &::after{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      
+    }
   }
 }
 

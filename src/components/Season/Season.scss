@@ -1,7 +1,6 @@
 @import '../../style/variables.scss';
 
 .Season {
-  
   &__button {
     border: none;
     margin: 5px 0;
@@ -19,32 +18,20 @@
       background-color: $color-1;
     }
   }
-
   
-}
-
-.Season h3 {
-}
-
-.SeasonList {
-  list-style: none;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: start;
-  padding: 0;
-}
-
-.SeasonItem {
-  // margin: 10px;
-
-  // &:nth-of-type(5n + 1) {
-  //   margin-left: 0;
-  // }
-
-  // &:nth-of-type(5n) {
-  //   margin-right: 0;
-  // }
+  &__List {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: start;
+    padding: 0;
+  }
+  
+  &__Item {
+    margin: 5px;
+  }
+  
 }

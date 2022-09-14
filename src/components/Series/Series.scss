@@ -1,7 +1,12 @@
 .Series{
   box-sizing: border-box;
 
-  & p {
+  &__List {
+    list-style: none;
+    padding: 0;
+  }
+  
+  &__Item {
   }
 
   &__button {
@@ -21,16 +26,4 @@
       cursor: pointer;
     }
   }
-
-  &__poster {
-  }
-}
-
-.SeriesList {
-  list-style: none;
-  padding: 0;
-}
-
-.SeriesItem {
-
 }
